@@ -28,7 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.htmlToolTip1 = new MetroFramework.Drawing.Html.HtmlToolTip();
             this.SuspendLayout();
+            // 
+            // htmlToolTip1
+            // 
+            this.htmlToolTip1.OwnerDraw = true;
             // 
             // Form1
             // 
@@ -36,14 +41,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
             this.Name = "Form1";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
+        private MetroFramework.Drawing.Html.HtmlToolTip htmlToolTip1;
     }
 }
 
