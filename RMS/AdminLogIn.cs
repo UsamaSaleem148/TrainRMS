@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace RMS
 {
-    public partial class Form1 : MetroFramework.Forms.MetroForm
+    public partial class AdminLogIn : MetroFramework.Forms.MetroForm
     {
-        public Form1()
+        public AdminLogIn()
         {
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void AdminLogIn_Load(object sender, EventArgs e)
         {
 
         }

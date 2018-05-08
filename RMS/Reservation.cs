@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace RMS
 {
-    public partial class Form1 : MetroFramework.Forms.MetroForm
+    public partial class Reservation : MetroFramework.Forms.MetroForm
     {
-        public Form1()
+        public Reservation()
         {
             InitializeComponent();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
