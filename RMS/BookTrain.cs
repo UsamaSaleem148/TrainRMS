@@ -19,6 +19,7 @@ namespace RMS
 
         private void metroComboBox6_SelectedIndexChanged(object sender, EventArgs e)
         {
+            Console.WriteLine("Hello World!");
             TextBox[] txtPassenger = new TextBox[Convert.ToInt32(metroComboBox6.SelectedItem.ToString())];
             Label[] lblPassenger = new Label[Convert.ToInt32(metroComboBox6.SelectedItem.ToString())];
             for (int i = 0; i < txtPassenger.Length; i++)
