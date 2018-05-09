@@ -70,6 +70,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminDashboardcs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminDashboardcs.Designer.cs">
+      <DependentUpon>AdminDashboardcs.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminLogIn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +93,12 @@
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FreightRates.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FreightRates.Designer.cs">
+      <DependentUpon>FreightRates.cs</DependentUpon>
     </Compile>
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
@@ -123,6 +135,9 @@
     <Compile Include="UserSignUp.Designer.cs">
       <DependentUpon>UserSignUp.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AdminDashboardcs.resx">
+      <DependentUpon>AdminDashboardcs.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AdminLogIn.resx">
       <DependentUpon>AdminLogIn.cs</DependentUpon>
     </EmbeddedResource>
@@ -131,6 +146,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FreightRates.resx">
+      <DependentUpon>FreightRates.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="obj\Debug\RMS.Form1.resources" />
     <EmbeddedResource Include="obj\Debug\RMS.Properties.Resources.resources" />
