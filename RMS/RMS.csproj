@@ -82,6 +82,12 @@
     <Compile Include="AdminLogIn.Designer.cs">
       <DependentUpon>AdminLogIn.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminReservation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminReservation.Designer.cs">
+      <DependentUpon>AdminReservation.cs</DependentUpon>
+    </Compile>
     <Compile Include="BookTrain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,6 +123,12 @@
     <Compile Include="ReserveSeats.Designer.cs">
       <DependentUpon>ReserveSeats.cs</DependentUpon>
     </Compile>
+    <Compile Include="Train.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Train.Designer.cs">
+      <DependentUpon>Train.cs</DependentUpon>
+    </Compile>
     <Compile Include="TrainTimings.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,6 +159,9 @@
     <EmbeddedResource Include="AdminLogIn.resx">
       <DependentUpon>AdminLogIn.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AdminReservation.resx">
+      <DependentUpon>AdminReservation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BookTrain.resx">
       <DependentUpon>BookTrain.cs</DependentUpon>
     </EmbeddedResource>
@@ -172,6 +187,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReserveSeats.resx">
       <DependentUpon>ReserveSeats.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Train.resx">
+      <DependentUpon>Train.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TrainTimings.resx">
       <DependentUpon>TrainTimings.cs</DependentUpon>
