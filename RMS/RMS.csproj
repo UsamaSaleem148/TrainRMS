@@ -70,6 +70,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddFreight.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddFreight.Designer.cs">
+      <DependentUpon>AddFreight.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddRoutes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddRoutes.Designer.cs">
+      <DependentUpon>AddRoutes.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminDashboardcs.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +93,12 @@
     </Compile>
     <Compile Include="AdminLogIn.Designer.cs">
       <DependentUpon>AdminLogIn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPassenger.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminPassenger.Designer.cs">
+      <DependentUpon>AdminPassenger.cs</DependentUpon>
     </Compile>
     <Compile Include="AdminReservation.cs">
       <SubType>Form</SubType>
@@ -153,11 +171,20 @@
     <Compile Include="UserSignUp.Designer.cs">
       <DependentUpon>UserSignUp.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddFreight.resx">
+      <DependentUpon>AddFreight.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddRoutes.resx">
+      <DependentUpon>AddRoutes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AdminDashboardcs.resx">
       <DependentUpon>AdminDashboardcs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminLogIn.resx">
       <DependentUpon>AdminLogIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminPassenger.resx">
+      <DependentUpon>AdminPassenger.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminReservation.resx">
       <DependentUpon>AdminReservation.cs</DependentUpon>

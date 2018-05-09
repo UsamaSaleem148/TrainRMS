@@ -34,8 +34,6 @@
             this.metroTile3 = new MetroFramework.Controls.MetroTile();
             this.metroTile4 = new MetroFramework.Controls.MetroTile();
             this.metroTile5 = new MetroFramework.Controls.MetroTile();
-            this.metroTile6 = new MetroFramework.Controls.MetroTile();
-            this.metroTile7 = new MetroFramework.Controls.MetroTile();
             this.metroTile8 = new MetroFramework.Controls.MetroTile();
             this.metroTile9 = new MetroFramework.Controls.MetroTile();
             this.SuspendLayout();
@@ -53,9 +51,9 @@
             // metroTile1
             // 
             this.metroTile1.ActiveControl = null;
-            this.metroTile1.Location = new System.Drawing.Point(77, 118);
+            this.metroTile1.Location = new System.Drawing.Point(23, 118);
             this.metroTile1.Name = "metroTile1";
-            this.metroTile1.Size = new System.Drawing.Size(225, 133);
+            this.metroTile1.Size = new System.Drawing.Size(145, 429);
             this.metroTile1.TabIndex = 8;
             this.metroTile1.Text = "Trains";
             this.metroTile1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -66,9 +64,9 @@
             // metroTile2
             // 
             this.metroTile2.ActiveControl = null;
-            this.metroTile2.Location = new System.Drawing.Point(337, 118);
+            this.metroTile2.Location = new System.Drawing.Point(174, 118);
             this.metroTile2.Name = "metroTile2";
-            this.metroTile2.Size = new System.Drawing.Size(225, 133);
+            this.metroTile2.Size = new System.Drawing.Size(145, 429);
             this.metroTile2.TabIndex = 8;
             this.metroTile2.Text = "Reservations";
             this.metroTile2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -79,9 +77,9 @@
             // metroTile3
             // 
             this.metroTile3.ActiveControl = null;
-            this.metroTile3.Location = new System.Drawing.Point(599, 118);
+            this.metroTile3.Location = new System.Drawing.Point(325, 118);
             this.metroTile3.Name = "metroTile3";
-            this.metroTile3.Size = new System.Drawing.Size(225, 133);
+            this.metroTile3.Size = new System.Drawing.Size(145, 429);
             this.metroTile3.TabIndex = 8;
             this.metroTile3.Text = "Freights";
             this.metroTile3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -92,9 +90,9 @@
             // metroTile4
             // 
             this.metroTile4.ActiveControl = null;
-            this.metroTile4.Location = new System.Drawing.Point(77, 268);
+            this.metroTile4.Location = new System.Drawing.Point(627, 408);
             this.metroTile4.Name = "metroTile4";
-            this.metroTile4.Size = new System.Drawing.Size(225, 133);
+            this.metroTile4.Size = new System.Drawing.Size(300, 139);
             this.metroTile4.TabIndex = 8;
             this.metroTile4.Text = "Drivers";
             this.metroTile4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -105,9 +103,9 @@
             // metroTile5
             // 
             this.metroTile5.ActiveControl = null;
-            this.metroTile5.Location = new System.Drawing.Point(337, 268);
+            this.metroTile5.Location = new System.Drawing.Point(627, 263);
             this.metroTile5.Name = "metroTile5";
-            this.metroTile5.Size = new System.Drawing.Size(225, 133);
+            this.metroTile5.Size = new System.Drawing.Size(300, 139);
             this.metroTile5.TabIndex = 8;
             this.metroTile5.Text = "Passengers";
             this.metroTile5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -115,40 +113,14 @@
             this.metroTile5.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
             this.metroTile5.UseSelectable = true;
             // 
-            // metroTile6
-            // 
-            this.metroTile6.ActiveControl = null;
-            this.metroTile6.Location = new System.Drawing.Point(599, 268);
-            this.metroTile6.Name = "metroTile6";
-            this.metroTile6.Size = new System.Drawing.Size(225, 133);
-            this.metroTile6.TabIndex = 8;
-            this.metroTile6.Text = "Users";
-            this.metroTile6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.metroTile6.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
-            this.metroTile6.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
-            this.metroTile6.UseSelectable = true;
-            // 
-            // metroTile7
-            // 
-            this.metroTile7.ActiveControl = null;
-            this.metroTile7.Location = new System.Drawing.Point(77, 419);
-            this.metroTile7.Name = "metroTile7";
-            this.metroTile7.Size = new System.Drawing.Size(225, 133);
-            this.metroTile7.TabIndex = 8;
-            this.metroTile7.Text = "Routes";
-            this.metroTile7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.metroTile7.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
-            this.metroTile7.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
-            this.metroTile7.UseSelectable = true;
-            // 
             // metroTile8
             // 
             this.metroTile8.ActiveControl = null;
-            this.metroTile8.Location = new System.Drawing.Point(337, 419);
+            this.metroTile8.Location = new System.Drawing.Point(627, 118);
             this.metroTile8.Name = "metroTile8";
-            this.metroTile8.Size = new System.Drawing.Size(225, 133);
+            this.metroTile8.Size = new System.Drawing.Size(300, 139);
             this.metroTile8.TabIndex = 8;
-            this.metroTile8.Text = "Stations";
+            this.metroTile8.Text = "Stations Timings";
             this.metroTile8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.metroTile8.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
             this.metroTile8.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
@@ -157,9 +129,9 @@
             // metroTile9
             // 
             this.metroTile9.ActiveControl = null;
-            this.metroTile9.Location = new System.Drawing.Point(599, 419);
+            this.metroTile9.Location = new System.Drawing.Point(476, 118);
             this.metroTile9.Name = "metroTile9";
-            this.metroTile9.Size = new System.Drawing.Size(225, 133);
+            this.metroTile9.Size = new System.Drawing.Size(145, 429);
             this.metroTile9.TabIndex = 8;
             this.metroTile9.Text = "Coaches";
             this.metroTile9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -175,8 +147,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.metroTile9);
             this.Controls.Add(this.metroTile8);
-            this.Controls.Add(this.metroTile6);
-            this.Controls.Add(this.metroTile7);
             this.Controls.Add(this.metroTile5);
             this.Controls.Add(this.metroTile4);
             this.Controls.Add(this.metroTile3);
@@ -197,8 +167,6 @@
         private MetroFramework.Controls.MetroTile metroTile3;
         private MetroFramework.Controls.MetroTile metroTile4;
         private MetroFramework.Controls.MetroTile metroTile5;
-        private MetroFramework.Controls.MetroTile metroTile6;
-        private MetroFramework.Controls.MetroTile metroTile7;
         private MetroFramework.Controls.MetroTile metroTile8;
         private MetroFramework.Controls.MetroTile metroTile9;
     }
