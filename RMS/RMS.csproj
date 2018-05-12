@@ -143,6 +143,7 @@
     <Compile Include="ReserveSeats.Designer.cs">
       <DependentUpon>ReserveSeats.cs</DependentUpon>
     </Compile>
+    <Compile Include="RMSController.cs" />
     <Compile Include="RMSDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
