@@ -56,6 +56,7 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(23, 228);
             this.dataGridView1.Name = "dataGridView1";
@@ -72,6 +73,7 @@
             this.Controls.Add(this.metroLabel1);
             this.Name = "TrainTimings";
             this.Text = "Railway Management System";
+            this.Load += new System.EventHandler(this.TrainTimings_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
