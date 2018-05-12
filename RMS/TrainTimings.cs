@@ -33,7 +33,7 @@ namespace RMS
             
            
 
-            //Copy from here for Connection!
+            //{Copy from here for Connection!
             ConnectionStringSettings conSettings = ConfigurationManager.ConnectionStrings["DB"];
             string connectionString = conSettings.ConnectionString;
             try
@@ -41,18 +41,13 @@ namespace RMS
                 con = new SqlConnection(connectionString);
                 con.Open();
 
-                //cmd.CommandText = "SELECT TrainTimings.TimingsID, Train.TrainName, TrainTimings.ArrivalTime, TrainTimings.DepartureTime FROM TrainTimings INNER JOIN Train ON TrainTimings.TrainID = Train.TrainID";
+                //Till Here}
 
                 cmd=new SqlCommand("SELECT TrainTimings.TimingsID, Train.TrainName, TrainTimings.ArrivalTime, TrainTimings.DepartureTime FROM TrainTimings INNER JOIN Train ON TrainTimings.TrainID = Train.TrainID", con);
 
                 SqlDataReader reader = cmd.ExecuteReader();
-
-                
-
-                    DataTable dt = new DataTable();
-
+                DataTable dt = new DataTable();
                     dt.Load(reader);
-
                     dataGridView1.DataSource = dt;
         }
             catch (Exception ex)
