@@ -57,7 +57,7 @@ namespace RMS
         }
             catch (Exception ex)
             {
-
+                MessageBox.Show(ex.Message);
             }
 
         }
