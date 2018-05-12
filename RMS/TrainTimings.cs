@@ -8,15 +8,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Configuration;
 
 namespace RMS
 {
     public partial class TrainTimings : MetroFramework.Forms.MetroForm
     {
-        
 
-        
-        SqlCommand com;
+
+
+        SqlConnection con;
+        SqlDataReader dr;
+        SqlCommand cmd;
+
 
         
         public TrainTimings()
@@ -26,47 +30,33 @@ namespace RMS
 
         private void TrainTimings_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'rMSDataSet.Train' table. You can move, or remove it, as needed.
-            this.trainTableAdapter.Fill(this.rMSDataSet.Train);
-            // TODO: This line of code loads data into the 'rMSDataSet.TrainTimings' table. You can move, or remove it, as needed.
-            this.trainTimingsTableAdapter.Fill(this.rMSDataSet.TrainTimings);
+            
            
 
+            //Copy from here for Connection!
+            ConnectionStringSettings conSettings = ConfigurationManager.ConnectionStrings["DB"];
+            string connectionString = conSettings.ConnectionString;
             try
             {
-                connn.ConnectDb();
+                con = new SqlConnection(connectionString);
+                con.Open();
 
+                //cmd.CommandText = "SELECT TrainTimings.TimingsID, Train.TrainName, TrainTimings.ArrivalTime, TrainTimings.DepartureTime FROM TrainTimings INNER JOIN Train ON TrainTimings.TrainID = Train.TrainID";
 
+                cmd=new SqlCommand("SELECT TrainTimings.TimingsID, Train.TrainName, TrainTimings.ArrivalTime, TrainTimings.DepartureTime FROM TrainTimings INNER JOIN Train ON TrainTimings.TrainID = Train.TrainID", con);
 
+                SqlDataReader reader = cmd.ExecuteReader();
 
-
-
-
-                com.CommandText = "SELECT TrainTimings.TimingsID, Train.TrainName, TrainTimings.ArrivalTime, TrainTimings.DepartureTime FROM TrainTimings INNER JOIN Train ON TrainTimings.TrainID = Train.TrainID";
-
-
-
-                SqlDataReader reader = com.ExecuteReader();
-
-                if (reader.HasRows)
-
-                {
+                
 
                     DataTable dt = new DataTable();
 
                     dt.Load(reader);
 
                     dataGridView1.DataSource = dt;
-
-                }
-
-            }
-
-            finally
-
+        }
+            catch (Exception ex)
             {
-
-                
 
             }
 
