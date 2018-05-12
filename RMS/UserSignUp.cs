@@ -12,6 +12,9 @@ namespace RMS
 {
     public partial class UserSignUp : MetroFramework.Forms.MetroForm
     {
+
+        RMSController controller = new RMSController();
+
         public UserSignUp()
         {
             InitializeComponent();
@@ -20,6 +23,11 @@ namespace RMS
         private void UserSignUp_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void metroButton1_Click(object sender, EventArgs e)
+        {
+            controller.UserSignup(metroTextBox1.Text, metroTextBox2.Text, metroTextBox3.Text, metroTextBox4.Text, metroTextBox5.Text, metroTextBox6.Text, richTextBox1.Text);
         }
     }
 }
