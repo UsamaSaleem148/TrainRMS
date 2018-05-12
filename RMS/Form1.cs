@@ -12,6 +12,8 @@ namespace RMS
 {
     public partial class Form1 : MetroFramework.Forms.MetroForm
     {
+        UserSignIn ud = new UserSignIn();
+        AdminDashboardcs ad = new AdminDashboardcs();
         public Form1()
         {
             InitializeComponent();
@@ -20,6 +22,20 @@ namespace RMS
         private void Form1_Load(object sender, EventArgs e)
         {
             
+        }
+
+        private void metroTile1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ud.ShowDialog();
+            this.Close();
+        }
+
+        private void metroTile3_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ad.ShowDialog();
+            this.Close();
         }
     }
 }
