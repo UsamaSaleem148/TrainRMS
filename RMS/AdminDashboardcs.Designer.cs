@@ -36,6 +36,7 @@
             this.metroTile5 = new MetroFramework.Controls.MetroTile();
             this.metroTile8 = new MetroFramework.Controls.MetroTile();
             this.metroTile9 = new MetroFramework.Controls.MetroTile();
+            this.metroTile6 = new MetroFramework.Controls.MetroTile();
             this.SuspendLayout();
             // 
             // label1
@@ -93,11 +94,11 @@
             // metroTile4
             // 
             this.metroTile4.ActiveControl = null;
-            this.metroTile4.Location = new System.Drawing.Point(627, 408);
+            this.metroTile4.Location = new System.Drawing.Point(627, 336);
             this.metroTile4.Name = "metroTile4";
-            this.metroTile4.Size = new System.Drawing.Size(300, 139);
+            this.metroTile4.Size = new System.Drawing.Size(300, 102);
             this.metroTile4.TabIndex = 8;
-            this.metroTile4.Text = "Drivers";
+            this.metroTile4.Text = "Stations";
             this.metroTile4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.metroTile4.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
             this.metroTile4.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
@@ -106,9 +107,9 @@
             // metroTile5
             // 
             this.metroTile5.ActiveControl = null;
-            this.metroTile5.Location = new System.Drawing.Point(627, 263);
+            this.metroTile5.Location = new System.Drawing.Point(627, 227);
             this.metroTile5.Name = "metroTile5";
-            this.metroTile5.Size = new System.Drawing.Size(300, 139);
+            this.metroTile5.Size = new System.Drawing.Size(300, 102);
             this.metroTile5.TabIndex = 8;
             this.metroTile5.Text = "Passengers";
             this.metroTile5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -122,7 +123,7 @@
             this.metroTile8.ActiveControl = null;
             this.metroTile8.Location = new System.Drawing.Point(627, 118);
             this.metroTile8.Name = "metroTile8";
-            this.metroTile8.Size = new System.Drawing.Size(300, 139);
+            this.metroTile8.Size = new System.Drawing.Size(300, 102);
             this.metroTile8.TabIndex = 8;
             this.metroTile8.Text = "Stations Timings";
             this.metroTile8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -145,6 +146,19 @@
             this.metroTile9.UseSelectable = true;
             this.metroTile9.Click += new System.EventHandler(this.metroTile9_Click);
             // 
+            // metroTile6
+            // 
+            this.metroTile6.ActiveControl = null;
+            this.metroTile6.Location = new System.Drawing.Point(627, 445);
+            this.metroTile6.Name = "metroTile6";
+            this.metroTile6.Size = new System.Drawing.Size(300, 102);
+            this.metroTile6.TabIndex = 8;
+            this.metroTile6.Text = "Drivers";
+            this.metroTile6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.metroTile6.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+            this.metroTile6.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
+            this.metroTile6.UseSelectable = true;
+            // 
             // AdminDashboardcs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -154,6 +168,7 @@
             this.Controls.Add(this.metroTile9);
             this.Controls.Add(this.metroTile8);
             this.Controls.Add(this.metroTile5);
+            this.Controls.Add(this.metroTile6);
             this.Controls.Add(this.metroTile4);
             this.Controls.Add(this.metroTile3);
             this.Controls.Add(this.metroTile2);
@@ -175,5 +190,6 @@
         private MetroFramework.Controls.MetroTile metroTile5;
         private MetroFramework.Controls.MetroTile metroTile8;
         private MetroFramework.Controls.MetroTile metroTile9;
+        private MetroFramework.Controls.MetroTile metroTile6;
     }
 }

@@ -149,6 +149,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>RMSDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Stations.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Stations.Designer.cs">
+      <DependentUpon>Stations.cs</DependentUpon>
+    </Compile>
     <Compile Include="Train.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -222,6 +228,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReserveSeats.resx">
       <DependentUpon>ReserveSeats.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Stations.resx">
+      <DependentUpon>Stations.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Train.resx">
       <DependentUpon>Train.cs</DependentUpon>

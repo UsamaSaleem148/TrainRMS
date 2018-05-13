@@ -182,6 +182,30 @@ MessageBoxIcon.Information);
                 MessageBox.Show(ex.Message);
             }
         }
+        public void AddStations(string stationname)
+        {
+            ConnectionStringSettings conSettings = ConfigurationManager.ConnectionStrings["DB"];
+            string connectionString = conSettings.ConnectionString;
+            try
+            {
+                con = new SqlConnection(connectionString);
+                con.Open();
+
+                //Till Here}
+
+                cmd = new SqlCommand("insert into [Stations](StationName) values ('" + stationname + "')", con);
+
+                cmd.ExecuteNonQuery();
+                con.Close();
+
+                DialogResult DDR = MessageBox.Show("Station Added Successfully!", "Railway Management System", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
 
 
     }
