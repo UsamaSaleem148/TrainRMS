@@ -68,6 +68,7 @@
             this.metroButton1.TabIndex = 3;
             this.metroButton1.Text = "Log In";
             this.metroButton1.UseSelectable = true;
+            this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
             // 
             // metroTextBox2
             // 
@@ -87,7 +88,7 @@
             this.metroTextBox2.Location = new System.Drawing.Point(133, 162);
             this.metroTextBox2.MaxLength = 32767;
             this.metroTextBox2.Name = "metroTextBox2";
-            this.metroTextBox2.PasswordChar = '\0';
+            this.metroTextBox2.PasswordChar = '•';
             this.metroTextBox2.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.metroTextBox2.SelectedText = "";
             this.metroTextBox2.SelectionLength = 0;

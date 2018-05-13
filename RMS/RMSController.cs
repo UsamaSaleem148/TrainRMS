@@ -62,6 +62,14 @@ MessageBoxIcon.Information);
                 DialogResult DDR = MessageBox.Show("User Added Successfully!", "Railway Management System", MessageBoxButtons.OK,
 MessageBoxIcon.Information);
 
+
+                UserSignUp usu = new UserSignUp();
+                UserDashboard ud = new UserDashboard();
+                usu.Hide();
+                ud.ShowDialog();
+                usu.Close();
+
+
             }
             catch (Exception ex)
             {
@@ -108,6 +116,73 @@ MessageBoxIcon.Information);
                 MessageBox.Show(ex.Message);
             }
         }
+
+
+        public void AddFreight(string fName, string perKG)
+        {
+            ConnectionStringSettings conSettings = ConfigurationManager.ConnectionStrings["DB"];
+            string connectionString = conSettings.ConnectionString;
+            try
+            {
+                con = new SqlConnection(connectionString);
+                con.Open();
+
+                //Till Here}
+
+                cmd = new SqlCommand("insert into [FreightRates]([ItemName],PerKgRate) values ('" + fName + "','" + perKG + "')", con);
+
+                cmd.ExecuteNonQuery();
+                con.Close();
+
+                DialogResult DDR = MessageBox.Show("Item Added Successfully!", "Railway Management System", MessageBoxButtons.OK,MessageBoxIcon.Information);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+
+        public void AdminLogin(string username, string password)
+        {
+            ConnectionStringSettings conSettings = ConfigurationManager.ConnectionStrings["DB"];
+            string connectionString = conSettings.ConnectionString;
+            try
+            {
+                con = new SqlConnection(connectionString);
+                con.Open();
+
+                da = new SqlDataAdapter("SELECT * from [Administrator] where [Username]='" + username + "' and [Password]='" + password + "'", con);
+                DataTable dtbl = new DataTable();
+                da.Fill(dtbl);
+                if (dtbl.Rows.Count == 1)
+                {
+
+
+                    AdminLogIn adl = new AdminLogIn();
+                    AdminDashboardcs ad = new AdminDashboardcs();
+                    adl.Hide();
+                    ad.ShowDialog();
+                    adl.Close();
+
+
+                }
+                else
+                {
+                    DialogResult DDR = MessageBox.Show("Invalid Username or Password", "Railway Management System", MessageBoxButtons.OK,
+MessageBoxIcon.Information);
+                }
+
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
 
     }
 }

@@ -26,16 +26,20 @@ namespace RMS
 
         private void metroTile1_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            ud.ShowDialog();
-            this.Close();
+            Form1 f1 = new Form1();
+            UserSignIn usi = new UserSignIn();
+            f1.Hide();
+            usi.ShowDialog();
+            f1.Close();
         }
 
         private void metroTile3_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            ad.ShowDialog();
-            this.Close();
+            Form1 f1 = new Form1();
+            AdminLogIn al = new AdminLogIn();
+            f1.Hide();
+            al.ShowDialog();
+            f1.Close();
         }
     }
 }
