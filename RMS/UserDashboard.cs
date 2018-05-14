@@ -12,9 +12,19 @@ namespace RMS
 {
     public partial class UserDashboard : MetroFramework.Forms.MetroForm
     {
+        BookTrain bookingTrain = new BookTrain();
         public UserDashboard()
         {
             InitializeComponent();
+        }
+
+        private void metroTile1_Click(object sender, EventArgs e)
+        {
+            
+
+            this.Hide();
+            bookingTrain.ShowDialog();
+            this.Close();
         }
     }
 }

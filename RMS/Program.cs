@@ -16,7 +16,7 @@ namespace RMS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new BookTrain());
+            Application.Run(new UserSignIn());
         }
     }
 }
