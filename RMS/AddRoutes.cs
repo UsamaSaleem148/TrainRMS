@@ -19,7 +19,7 @@ namespace RMS
         SqlDataAdapter da;
         SqlCommand cmd;
         RMSController controller = new RMSController();
-        string stationID,trainID;
+        
 
         public AddRoutes()
         {

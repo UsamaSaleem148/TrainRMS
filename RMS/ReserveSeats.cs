@@ -12,43 +12,61 @@ namespace RMS
 {
     public partial class ReserveSeats : MetroFramework.Forms.MetroForm
     {
+        int seats=1,location = 50;
+        
         public ReserveSeats()
         {
             InitializeComponent();
         }
 
 
-        public void noPassenger(int noOfPassenger)
+        public void noPassenger()
         {
-          
-            TextBox[] txtPassenger = new TextBox[noOfPassenger];
-            Label[] lblPassenger = new Label[noOfPassenger];
-            for (int i = 0; i < txtPassenger.Length; i++)
+           // string[] text = new string[noOfPassenger];
+
+            Button[] btnPassenger = new Button[30];
+            
+            for (int i = 0; i < 5; i++)
             {
-                var lbl = new Label();
-                string name = "label" + i.ToString();
-                lblPassenger[i] = lbl;
-                lbl.Name = name;
-                lbl.Text = "Passenger Name:";
-                lbl.Location = new Point(50, 32 + (i * 28));
-                metroPanel1.Controls.Add(lbl);
-                lbl.Visible = true;
+                for (int j = 0; j < 6; j++)
+                {
+                    var txt = new Button();
+                    int name = seats;
+                    //text[i] = name;
+                    btnPassenger[i] = txt;
+                    string nameofbutton = "btn" + i.ToString();
+                    txt.Name = nameofbutton;
+                    txt.Text = Convert.ToString(name);
+                    txt.Location = new Point(location, 32 + (j * 28));
+                    metroPanel1.Controls.Add(txt);
+                    txt.Visible = true;
+                    seats++;
+                    txt.Click += new EventHandler(MyButtonClick);
+                    
+                }
+                location += 100;
+               
 
 
-                var txt = new TextBox();
-                name = "textbox" + i.ToString();
-                txtPassenger[i] = txt;
-                txt.Name = name;
-                txt.Text = "";
-                txt.Location = new Point(172, 32 + (i * 28));
-                metroPanel1.Controls.Add(txt);
-                txt.Visible = true;
+                
             }
         }
 
         private void ReserveSeats_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void metroTile1_Click(object sender, EventArgs e)
+        {
+
+        }
+        void MyButtonClick(object sender, EventArgs e)
+        {
+            Button button = sender as Button;
+            string buttonText = ((Button)sender).Text;
+            ((Button)sender).Enabled = false;
+            MessageBox.Show(buttonText);
         }
     }
 }

@@ -45,7 +45,7 @@ namespace RMS
 
                 //Till Here}
                 this.metroGrid1.Columns.Clear();
-                cmd = new SqlCommand("SELECT * FROM Train", con);
+                cmd = new SqlCommand("SELECT * FROM [Train]", con);
 
                 SqlDataReader reader = cmd.ExecuteReader();
                 DataTable dt = new DataTable();
@@ -65,7 +65,7 @@ namespace RMS
                 con.Open();
 
                 //Till Here}
-                this.metroGrid1.Columns.Clear();
+                this.metroGrid2.Columns.Clear();
                 cmd = new SqlCommand("SELECT * FROM Classes", con);
 
                 SqlDataReader reader = cmd.ExecuteReader();
@@ -73,7 +73,7 @@ namespace RMS
                 dt.Load(reader);
                 metroGrid2.DataSource = dt;
                 con.Close();
-                deletebuttons();
+                
 
             }
             catch (Exception ex)
@@ -171,7 +171,7 @@ namespace RMS
                 con.Open();
 
                 //Till Here}
-                this.metroGrid1.Columns.Clear();
+                this.metroGrid2.Columns.Clear();
                 cmd = new SqlCommand("SELECT * FROM Classes", con);
 
                 SqlDataReader reader = cmd.ExecuteReader();
@@ -179,7 +179,7 @@ namespace RMS
                 dt.Load(reader);
                 metroGrid2.DataSource = dt;
                 con.Close();
-                deletebuttons();
+                
 
             }
             catch (Exception ex)
