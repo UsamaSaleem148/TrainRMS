@@ -276,12 +276,12 @@ MessageBoxIcon.Information);
 
                 //Till Here}
                 string status = "false";
-                cmd = new SqlCommand("insert into [Reservation](PassengerName,NIC,TrainName,ClassName,SeatNo,[From],[To],Amount,DepDate,DepTime,UserName,Status) values ('" + passengerName + "','" + NIC + "','" + TrainName + "','" + Class + "','" + seatNo + "','" + From + "','" + to + "','" + amount + "','" + depdate + "','" + time + "','" + user + "','" + status + "')", con);
+                cmd = new SqlCommand("insert into [Reservation](PassengerName,NIC,TrainName,ClassName,SeatNo,[From],[To],Amount,DepDate,DepTime,UserName,Status) values ('" + passengerName + "','" + NIC + "','" + TrainName + "','" + Class + "','" + seatNo + "','" + From + "','" + to + "',1200,'" + depdate + "','05:00','" + User_Name + "','" + status + "')", con);
 
                 cmd.ExecuteNonQuery();
                 con.Close();
 
-                DialogResult DDR = MessageBox.Show("Class Added Successfully!", "Railway Management System", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DialogResult DDR = MessageBox.Show("Reservation Successfully!", "Railway Management System", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
             catch (Exception ex)
