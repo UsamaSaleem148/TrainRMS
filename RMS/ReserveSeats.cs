@@ -13,7 +13,10 @@ namespace RMS
     public partial class ReserveSeats : MetroFramework.Forms.MetroForm
     {
         int seats=1,location = 50,i,j;
-        
+        string buttonText;
+        RMSController controller = new RMSController();
+        BookTrain booking = new BookTrain();
+
         public ReserveSeats()
         {
             InitializeComponent();
@@ -64,7 +67,7 @@ namespace RMS
 
         private void metroTile3_Click(object sender, EventArgs e)
         {
-
+            controller.BookSeats(metroTextBox1.Text,metroTextBox2.Text,BookTrain.trainName,BookTrain.className,buttonText,BookTrain.source,BookTrain.destination,BookTrain.date);
             metroPanel1.Enabled = true;
             metroPanel1.Visible = true;
 
@@ -91,7 +94,7 @@ namespace RMS
 
         void MyButtonClick(object sender, EventArgs e)
         {
-            string buttonText = ((Button)sender).Text;
+            buttonText = ((Button)sender).Text;
             ((Button)sender).Enabled = false;
 
             //MessageBox.Show(buttonText);

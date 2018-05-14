@@ -14,23 +14,22 @@ namespace RMS
 {
     public partial class BookTrain : MetroFramework.Forms.MetroForm
     {
+
+        
+
+
         SqlConnection con;
         SqlDataReader dr;
         SqlDataAdapter da;
         SqlCommand cmd;
         RMSController controller = new RMSController();
         ReserveSeats passenegr = new ReserveSeats();
-        string trainName, className, source, destination, date;
+       public static string trainName, className, source, destination, date;
 
         public BookTrain()
         {
             InitializeComponent();
         }
-
-        
-
-
-
         private void metroComboBox6_SelectedIndexChanged(object sender, EventArgs e)
         {
             
@@ -38,6 +37,15 @@ namespace RMS
         
         private void metroTile1_Click(object sender, EventArgs e)
         {
+
+            trainName = metroComboBox1.SelectedItem.ToString();
+            className = metroComboBox4.SelectedItem.ToString();
+            date = metroDateTime1.ToString();
+            source = metroComboBox2.SelectedItem.ToString();
+            destination = metroComboBox3.SelectedItem.ToString();
+
+
+
 
             passenegr.noPassenger();
             this.Hide();

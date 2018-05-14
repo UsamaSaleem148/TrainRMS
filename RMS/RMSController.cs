@@ -17,6 +17,7 @@ namespace RMS
         SqlDataReader dr;
         SqlDataAdapter da;
         SqlCommand cmd;
+        string User_Name;
 
         public void InsertTrain(string TrainName,string Source,string Destination)
         {
@@ -95,7 +96,7 @@ MessageBoxIcon.Information);
                 da.Fill(dtbl);
                 if (dtbl.Rows.Count == 1)
                 {
-
+                    User_Name = dtbl.Rows[0][1].ToString();
 
                     UserSignIn usd = new UserSignIn();
                     UserDashboard ud = new UserDashboard();
@@ -251,6 +252,31 @@ MessageBoxIcon.Information);
                 //Till Here}
 
                 cmd = new SqlCommand("insert into [Classes](ClassName) values ('" + className + "')", con);
+
+                cmd.ExecuteNonQuery();
+                con.Close();
+
+                DialogResult DDR = MessageBox.Show("Class Added Successfully!", "Railway Management System", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        public void BookSeats(string passengerName,string NIC, string TrainName, string Class, string seatNo, string From, string to, string depdate)
+        {
+            ConnectionStringSettings conSettings = ConfigurationManager.ConnectionStrings["DB"];
+            string connectionString = conSettings.ConnectionString;
+            try
+            {
+                con = new SqlConnection(connectionString);
+                if (con.State == ConnectionState.Closed)
+                    con.Open();
+
+                //Till Here}
+                string status = "false";
+                cmd = new SqlCommand("insert into [Reservation](PassengerName,NIC,TrainName,ClassName,SeatNo,[From],[To],Amount,DepDate,DepTime,UserName,Status) values ('" + passengerName + "','" + NIC + "','" + TrainName + "','" + Class + "','" + seatNo + "','" + From + "','" + to + "','" + amount + "','" + depdate + "','" + time + "','" + user + "','" + status + "')", con);
 
                 cmd.ExecuteNonQuery();
                 con.Close();
