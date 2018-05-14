@@ -59,6 +59,27 @@ namespace RMS
             {
                 MessageBox.Show(ex.Message);
             }
+            try
+            {
+                con = new SqlConnection(connectionString);
+                con.Open();
+
+                //Till Here}
+                this.metroGrid1.Columns.Clear();
+                cmd = new SqlCommand("SELECT * FROM Classes", con);
+
+                SqlDataReader reader = cmd.ExecuteReader();
+                DataTable dt = new DataTable();
+                dt.Load(reader);
+                metroGrid2.DataSource = dt;
+                con.Close();
+                deletebuttons();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void metroGrid1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -139,6 +160,32 @@ namespace RMS
                 MessageBox.Show(ex.Message);
             }
 
+        }
+
+        private void metroTile2_Click(object sender, EventArgs e)
+        {
+            controller.AddClass(metroTextBox4.Text);
+            try
+            {
+                
+                con.Open();
+
+                //Till Here}
+                this.metroGrid1.Columns.Clear();
+                cmd = new SqlCommand("SELECT * FROM Classes", con);
+
+                SqlDataReader reader = cmd.ExecuteReader();
+                DataTable dt = new DataTable();
+                dt.Load(reader);
+                metroGrid2.DataSource = dt;
+                con.Close();
+                deletebuttons();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

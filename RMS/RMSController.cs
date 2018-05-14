@@ -238,6 +238,30 @@ MessageBoxIcon.Information);
             }
         }
 
+        public void AddClass(string className)
+        {
+            ConnectionStringSettings conSettings = ConfigurationManager.ConnectionStrings["DB"];
+            string connectionString = conSettings.ConnectionString;
+            try
+            {
+                con = new SqlConnection(connectionString);
+                if (con.State == ConnectionState.Closed)
+                    con.Open();
 
+                //Till Here}
+
+                cmd = new SqlCommand("insert into [Classes](ClassName) values ('" + className + "')", con);
+
+                cmd.ExecuteNonQuery();
+                con.Close();
+
+                DialogResult DDR = MessageBox.Show("Class Added Successfully!", "Railway Management System", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }
