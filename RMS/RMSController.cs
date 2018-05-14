@@ -17,6 +17,7 @@ namespace RMS
         SqlDataReader dr;
         SqlDataAdapter da;
         SqlCommand cmd;
+        public static string usname;
 
         public void InsertTrain(string TrainName,string Source,string Destination)
         {
@@ -91,6 +92,7 @@ MessageBoxIcon.Information);
                     con.Open();
 
                 da = new SqlDataAdapter("SELECT * from [User] where [Username]='" + username + "' and [Password]='" + password + "'", con);
+                usname = (dr["Name"].ToString());
                 DataTable dtbl = new DataTable();
                 da.Fill(dtbl);
                 if (dtbl.Rows.Count == 1)

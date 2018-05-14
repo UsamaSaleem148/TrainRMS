@@ -7,13 +7,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Configuration;
+using System.Data.SqlClient;
 
 namespace RMS
 {
     public partial class ReserveSeats : MetroFramework.Forms.MetroForm
     {
-        int seats=1,location = 50,i,j;
+
+        SqlConnection con;
+        SqlDataReader dr;
+        SqlDataAdapter da;
+        SqlCommand cmd;
         
+
+        public string arrival,status;
+
+        int seats=1,location = 50,i,j;
+
+        
+        public string buttonText;
+        public float amount;
+
+
+
         public ReserveSeats()
         {
             InitializeComponent();
@@ -57,6 +74,11 @@ namespace RMS
 
         }
 
+        private void metroPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
         private void metroTile1_Click(object sender, EventArgs e)
         {
 
@@ -65,13 +87,74 @@ namespace RMS
         private void metroTile3_Click(object sender, EventArgs e)
         {
 
+
+
+
+
+            ConnectionStringSettings conSettings = ConfigurationManager.ConnectionStrings["DB"];
+            string connectionString = conSettings.ConnectionString;
+
+
+            try
+            {
+
+                con = new SqlConnection(connectionString);
+                if (con.State == ConnectionState.Closed)
+                    con.Open();
+
+
+
+                da = new SqlDataAdapter("SELECT ArrivalTime from [TrainTimings] where [TrainName]='" + BookTrain.trainName + "' and [StationName]='" + BookTrain.source + "'", con);
+                
+
+                dr = cmd.ExecuteReader();
+                
+                    arrival = (dr["ArrivalTime"].ToString());
+
+
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
+            }
+
+            try
+
+            {
+                con = new SqlConnection(connectionString);
+                if (con.State == ConnectionState.Closed)
+                    con.Open();
+
+                //Till Here}
+                status = "false";
+                cmd = new SqlCommand("insert into [Reservation](PassengerName,NIC,TrainName,ClassName,SeatNo,[From],[To],Amount,DepDate,DepTime,UserName,Status) values ('"+metroTextBox1.Text + "','" + metroTextBox2.Text + "','"+BookTrain.trainName+"','"+BookTrain.className+"','" + buttonText + "','"+ BookTrain.source + "','"+BookTrain.destination+"','1200','"+BookTrain.date+"','"+arrival+"','"+RMSController.usname+"','False')", con);
+
+                cmd.ExecuteNonQuery();
+                con.Close();
+
+                DialogResult DDR = MessageBox.Show("Reservation Successfully!", "Railway Management System",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+
+            }
+
+
+
+
+
+
             metroPanel1.Enabled = true;
             metroPanel1.Visible = true;
 
             metroPanel2.Visible = false;
             metroPanel2.Enabled = false;
 
-            
+
         }
 
         private void metroTile2_Click(object sender, EventArgs e)
@@ -91,7 +174,7 @@ namespace RMS
 
         void MyButtonClick(object sender, EventArgs e)
         {
-            string buttonText = ((Button)sender).Text;
+            buttonText = ((Button)sender).Text;
             ((Button)sender).Enabled = false;
 
             //MessageBox.Show(buttonText);
