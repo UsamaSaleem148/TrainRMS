@@ -25,7 +25,8 @@ namespace RMS
             try
             {
                 con = new SqlConnection(connectionString);
-                con.Open();
+                if (con.State == ConnectionState.Closed)
+                    con.Open();
 
                 //Till Here}
 
@@ -50,7 +51,8 @@ MessageBoxIcon.Information);
             try
             {
                 con = new SqlConnection(connectionString);
-                con.Open();
+                if (con.State == ConnectionState.Closed)
+                    con.Open();
 
                 //Till Here}
 
@@ -85,7 +87,8 @@ MessageBoxIcon.Information);
             try
             {
                 con = new SqlConnection(connectionString);
-                con.Open();
+                if (con.State == ConnectionState.Closed)
+                    con.Open();
 
                 da = new SqlDataAdapter("SELECT * from [User] where [Username]='" + username + "' and [Password]='" + password + "'", con);
                 DataTable dtbl = new DataTable();
@@ -125,7 +128,8 @@ MessageBoxIcon.Information);
             try
             {
                 con = new SqlConnection(connectionString);
-                con.Open();
+                if (con.State == ConnectionState.Closed)
+                    con.Open();
 
                 //Till Here}
 
@@ -151,7 +155,8 @@ MessageBoxIcon.Information);
             try
             {
                 con = new SqlConnection(connectionString);
-                con.Open();
+                if (con.State == ConnectionState.Closed)
+                    con.Open();
 
                 da = new SqlDataAdapter("SELECT * from [Administrator] where [Username]='" + username + "' and [Password]='" + password + "'", con);
                 DataTable dtbl = new DataTable();
@@ -189,7 +194,8 @@ MessageBoxIcon.Information);
             try
             {
                 con = new SqlConnection(connectionString);
-                con.Open();
+                if (con.State == ConnectionState.Closed)
+                    con.Open();
 
                 //Till Here}
 
@@ -199,6 +205,31 @@ MessageBoxIcon.Information);
                 con.Close();
 
                 DialogResult DDR = MessageBox.Show("Station Added Successfully!", "Railway Management System", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        public void AddRoutes(string TrainName,string StationName,string arrivaltime,string departuretime)
+        {
+            ConnectionStringSettings conSettings = ConfigurationManager.ConnectionStrings["DB"];
+            string connectionString = conSettings.ConnectionString;
+            try
+            {
+                con = new SqlConnection(connectionString);
+                if (con.State == ConnectionState.Closed)
+                    con.Open();
+
+                //Till Here}
+
+                cmd = new SqlCommand("insert into [TrainTimings](StationName,TrainName,ArrivalTime,DepartureTime) values ('" + StationName + "','"+TrainName+"','"+arrivaltime+"','"+departuretime+"')", con);
+
+                cmd.ExecuteNonQuery();
+                con.Close();
+
+                DialogResult DDR = MessageBox.Show("Route Added Successfully!", "Railway Management System", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
             catch (Exception ex)
