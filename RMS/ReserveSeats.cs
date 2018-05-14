@@ -12,7 +12,7 @@ namespace RMS
 {
     public partial class ReserveSeats : MetroFramework.Forms.MetroForm
     {
-        int seats=1,location = 50;
+        int seats=1,location = 50,i,j;
         
         public ReserveSeats()
         {
@@ -61,12 +61,45 @@ namespace RMS
         {
 
         }
+
+        private void metroTile3_Click(object sender, EventArgs e)
+        {
+
+            metroPanel1.Enabled = true;
+            metroPanel1.Visible = true;
+
+            metroPanel2.Visible = false;
+            metroPanel2.Enabled = false;
+
+            
+        }
+
+        private void metroTile2_Click(object sender, EventArgs e)
+        {
+            
+            metroPanel1.Enabled = true;
+            metroPanel1.Visible = true;
+            
+            metroPanel2.Visible = false;
+            metroPanel2.Enabled = false;
+            metroPanel1.Controls.Clear();
+            seats = 1;
+            location = 50;
+            noPassenger();
+            
+        }
+
         void MyButtonClick(object sender, EventArgs e)
         {
-            Button button = sender as Button;
             string buttonText = ((Button)sender).Text;
             ((Button)sender).Enabled = false;
-            MessageBox.Show(buttonText);
+
+            //MessageBox.Show(buttonText);
+            metroPanel2.Visible = true;
+            metroPanel2.Enabled = true;
+            
+            metroPanel1.Enabled = false;
+            metroPanel1.Visible = false;
         }
     }
 }
