@@ -14,6 +14,7 @@ using PdfSharp.Pdf;
 using PdfSharp.Drawing;
 using System.Diagnostics;
 
+
 namespace RMS
 {
     public partial class ReserveSeats : MetroFramework.Forms.MetroForm
@@ -157,7 +158,7 @@ namespace RMS
             XFont smallfont = new XFont("Verdana", 13, XFontStyle.Regular);
             for (int h = 0; h < t; h++)
             {
-                graph.DrawString("                             RMS - E-Ticket                             ", font, XBrushes.Black,, y += 18);
+                graph.DrawString("                             RMS - E-Ticket                             ", font, XBrushes.Black,150, y += 18);
                 
                 graph.DrawString("Date: " + BookTrain.date + "                                       Time: " + BookTrain.arrivaltime + "", smallfont, XBrushes.Black, x, y+=18);
                 graph.DrawString("Passenger Name: " + Pname[h] + "                                NIC: " + Pnic[h] + "", smallfont, XBrushes.Black, x, y+=18);
