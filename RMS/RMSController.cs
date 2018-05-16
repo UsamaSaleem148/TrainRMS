@@ -92,7 +92,7 @@ MessageBoxIcon.Information);
                     con.Open();
 
                 da = new SqlDataAdapter("SELECT * from [User] where [Username]='" + username + "' and [Password]='" + password + "'", con);
-                usname = (dr["Name"].ToString());
+                
                 DataTable dtbl = new DataTable();
                 da.Fill(dtbl);
                 if (dtbl.Rows.Count == 1)
