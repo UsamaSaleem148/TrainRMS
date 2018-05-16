@@ -24,11 +24,15 @@ namespace RMS
         SqlDataAdapter da;
         SqlCommand cmd;
         List<string> _data = new List<string>();
-     
+        string[] Pname;
+        string[] Pnic;
+
+
+
 
         public string status,btnnameforclose;
 
-        int seats=1,location = 50,i,j,count=1;
+        int seats=1,location = 50,i,j,count=1,t=0,b=0;
 
 
         
@@ -141,15 +145,48 @@ namespace RMS
 
         private void metroTile1_Click(object sender, EventArgs e)
         {
+            int x = 10, y = 50;
             
+
+            
+            PdfDocument pdf = new PdfDocument();
+            pdf.Info.Title = "E Tickets";
+            PdfPage pdfPage = pdf.AddPage();
+            XGraphics graph = XGraphics.FromPdfPage(pdfPage);
+            XFont font = new XFont("Verdana", 20, XFontStyle.Bold);
+            XFont smallfont = new XFont("Verdana", 13, XFontStyle.Regular);
+            for (int h = 0; h < t; h++)
+            {
+                graph.DrawString("                             RMS - E-Ticket                             ", font, XBrushes.Black,, y += 18);
+                
+                graph.DrawString("Date: " + BookTrain.date + "                                       Time: " + BookTrain.arrivaltime + "", smallfont, XBrushes.Black, x, y+=18);
+                graph.DrawString("Passenger Name: " + Pname[h] + "                                NIC: " + Pnic[h] + "", smallfont, XBrushes.Black, x, y+=18);
+                graph.DrawString("Train Name: " + BookTrain.trainName + "                          Class: " + BookTrain.className + "", smallfont, XBrushes.Black, x, y += 18);
+                graph.DrawString("From: " + BookTrain.source + "                                 To: " + BookTrain.destination + "", smallfont, XBrushes.Black, x, y += 18);
+                graph.DrawString("Reserved by: " + RMSController.usname + "", smallfont, XBrushes.Black, 10, y+=18);
+                graph.DrawString("                                    ", smallfont, XBrushes.Black, 10, y += 18);
+                graph.DrawString("                                    ", smallfont, XBrushes.Black, 10, y += 18);
+                graph.DrawString(" ------------------------------------------------------------------ ", smallfont, XBrushes.Black,120, y += 18);
+                graph.DrawString("                                    ", smallfont, XBrushes.Black, 10, y += 18);
+                graph.DrawString("                                    ", smallfont, XBrushes.Black, 10, y += 18);
+                
+            }
+            string pdfFilename = "Tickets.pdf";
+            pdf.Save(pdfFilename);
+            
+            Process.Start(pdfFilename);
         }
 
         private void metroTile3_Click(object sender, EventArgs e)
         {
-
-
-
-
+             Pname= new string[Convert.ToInt16(BookTrain.npassenger)];
+            Pnic = new string[Convert.ToInt16(BookTrain.npassenger)];
+            if (t < Convert.ToInt16(BookTrain.npassenger))
+            {
+                Pname[t] = metroTextBox1.Text;
+                Pnic[t] = metroTextBox2.Text;
+                t++;
+            }
 
             ConnectionStringSettings conSettings = ConfigurationManager.ConnectionStrings["DB"];
             string connectionString = conSettings.ConnectionString;
@@ -166,7 +203,7 @@ namespace RMS
                 //Till Here}
                 status = "false";
                 cmd = new SqlCommand("insert into [Reservation](PassengerName,NIC,TrainName,ClassName,SeatNo,[From],[To],Amount,DepDate,DepTime,UserName,Status) values ('"+metroTextBox1.Text + "','" + metroTextBox2.Text + "','"+BookTrain.trainName+"','"+BookTrain.className+"'," + buttonText + ",'"+ BookTrain.source + "','"+BookTrain.destination+"','1200','"+BookTrain.date+"','"+BookTrain.arrivaltime+"','"+RMSController.usname+"','False')", con);
-
+                
                 cmd.ExecuteNonQuery();
                 con.Close();
 

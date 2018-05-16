@@ -185,12 +185,6 @@
     <Compile Include="Stations.Designer.cs">
       <DependentUpon>Stations.cs</DependentUpon>
     </Compile>
-    <Compile Include="ticketing.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ticketing.Designer.cs">
-      <DependentUpon>ticketing.cs</DependentUpon>
-    </Compile>
     <Compile Include="Train.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -270,9 +264,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Stations.resx">
       <DependentUpon>Stations.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ticketing.resx">
-      <DependentUpon>ticketing.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Train.resx">
       <DependentUpon>Train.cs</DependentUpon>
