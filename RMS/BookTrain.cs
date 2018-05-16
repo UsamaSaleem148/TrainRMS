@@ -22,6 +22,29 @@ namespace RMS
         ReserveSeats passenegr = new ReserveSeats();
        public static string trainName, className, source, destination, date,arrivaltime,npassenger;
 
+        private void metroComboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+
+                con.Open();
+
+                //Till Here}
+
+                cmd = new SqlCommand("SELECT * from TrainTimings where TrainName='" + metroComboBox1.Text + "' and StationName = '" + metroComboBox2.Text + "'", con);
+
+                SqlDataReader reader = cmd.ExecuteReader();
+                DataTable dt = new DataTable();
+                dt.Load(reader);
+                metroGrid1.DataSource = dt;
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
         public BookTrain()
         {
             InitializeComponent();
