@@ -122,6 +122,7 @@ namespace RMS
             metroPanel1.Controls.Clear();
             seats = 1;
             location = 50;
+            count--;
             noPassenger();
             metroPanel1.Enabled = true;
             metroPanel1.Visible = true;
@@ -177,11 +178,6 @@ namespace RMS
 
             }
 
-
-
-
-
-
             metroPanel1.Enabled = true;
             metroPanel1.Visible = true;
 
@@ -194,17 +190,7 @@ namespace RMS
 
         private void metroTile2_Click(object sender, EventArgs e)
         {
-            metroPanel1.Controls.Clear();
-            seats = 1;
-            location = 50;
-            noPassenger();
-            metroPanel1.Enabled = true;
-            metroPanel1.Visible = true;
-
-            metroPanel2.Visible = false;
-            metroPanel2.Enabled = false;
-
-
+           
         }
 
         void MyButtonClick(object sender, EventArgs e)
@@ -224,7 +210,7 @@ namespace RMS
             }
             else
             {
-                metroPanel1.Enabled = false;
+                
                 DialogResult DDR = MessageBox.Show("You can only Reserved "+BookTrain.npassenger+" Seats", "Railway Management System",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
