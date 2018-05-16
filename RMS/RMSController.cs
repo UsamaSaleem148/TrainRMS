@@ -17,7 +17,7 @@ namespace RMS
         SqlDataReader dr;
         SqlDataAdapter da;
         SqlCommand cmd;
-        public static string usname;
+        public static string usname=null;
 
         public void InsertTrain(string TrainName,string Source,string Destination)
         {
@@ -98,8 +98,8 @@ MessageBoxIcon.Information);
                 if (dtbl.Rows.Count == 1)
                 {
 
-
-                    UserSignIn usd = new UserSignIn();
+                    usname = username;
+                        UserSignIn usd = new UserSignIn();
                     UserDashboard ud = new UserDashboard();
                     usd.Hide();
                     ud.ShowDialog();

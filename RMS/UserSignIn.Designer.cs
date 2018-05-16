@@ -112,7 +112,7 @@
             this.metroLabel5.Location = new System.Drawing.Point(284, 277);
             this.metroLabel5.Name = "metroLabel5";
             this.metroLabel5.Size = new System.Drawing.Size(81, 19);
-            this.metroLabel5.TabIndex = 5;
+            this.metroLabel5.TabIndex = 3;
             this.metroLabel5.Text = "Signup now";
             this.metroLabel5.UseCustomBackColor = true;
             // 
@@ -132,7 +132,7 @@
             this.metroButton1.Location = new System.Drawing.Point(275, 210);
             this.metroButton1.Name = "metroButton1";
             this.metroButton1.Size = new System.Drawing.Size(96, 42);
-            this.metroButton1.TabIndex = 3;
+            this.metroButton1.TabIndex = 2;
             this.metroButton1.Text = "Log In";
             this.metroButton1.UseSelectable = true;
             this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
@@ -162,7 +162,7 @@
             this.metroTextBox2.SelectionStart = 0;
             this.metroTextBox2.ShortcutsEnabled = true;
             this.metroTextBox2.Size = new System.Drawing.Size(238, 23);
-            this.metroTextBox2.TabIndex = 2;
+            this.metroTextBox2.TabIndex = 1;
             this.metroTextBox2.UseSelectable = true;
             this.metroTextBox2.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.metroTextBox2.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -192,7 +192,7 @@
             this.metroTextBox1.SelectionStart = 0;
             this.metroTextBox1.ShortcutsEnabled = true;
             this.metroTextBox1.Size = new System.Drawing.Size(238, 23);
-            this.metroTextBox1.TabIndex = 2;
+            this.metroTextBox1.TabIndex = 0;
             this.metroTextBox1.UseSelectable = true;
             this.metroTextBox1.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.metroTextBox1.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
