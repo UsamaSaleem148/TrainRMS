@@ -79,6 +79,10 @@ namespace RMS
 
         private void BookTrain_Load(object sender, EventArgs e)
         {
+
+            dateTimePicker1.MinDate = DateTime.Today;
+
+
             ConnectionStringSettings conSettings = ConfigurationManager.ConnectionStrings["DB"];
             string connectionString = conSettings.ConnectionString;
             try
