@@ -158,7 +158,7 @@ namespace RMS
             XFont smallfont = new XFont("Verdana", 13, XFontStyle.Regular);
             for (int h = 0; h < t; h++)
             {
-                graph.DrawString("                             RMS - E-Ticket                             ", font, XBrushes.Black,150, y += 18);
+                graph.DrawString("                             RMS - E-Ticket                             ", font, XBrushes.Black,100, y += 18);
                 
                 graph.DrawString("Date: " + BookTrain.date + "                                       Time: " + BookTrain.arrivaltime + "", smallfont, XBrushes.Black, x, y+=18);
                 graph.DrawString("Passenger Name: " + Pname[h] + "                                NIC: " + Pnic[h] + "", smallfont, XBrushes.Black, x, y+=18);
@@ -182,12 +182,11 @@ namespace RMS
         {
              Pname= new string[Convert.ToInt16(BookTrain.npassenger)];
             Pnic = new string[Convert.ToInt16(BookTrain.npassenger)];
-            if (t < Convert.ToInt16(BookTrain.npassenger))
-            {
+            
                 Pname[t] = metroTextBox1.Text;
                 Pnic[t] = metroTextBox2.Text;
                 t++;
-            }
+            
 
             ConnectionStringSettings conSettings = ConfigurationManager.ConnectionStrings["DB"];
             string connectionString = conSettings.ConnectionString;
