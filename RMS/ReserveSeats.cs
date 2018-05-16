@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
 using System.Data.SqlClient;
+using MetroFramework.Controls;
 
 namespace RMS
 {
@@ -19,11 +20,13 @@ namespace RMS
         SqlDataReader dr;
         SqlDataAdapter da;
         SqlCommand cmd;
-        
+        List<string> _data = new List<string>();
+     
 
-        public string status;
+        public string status,btnnameforclose;
 
-        int seats=1,location = 50,i,j;
+        int seats=1,location = 50,i,j,count=1;
+
 
         
         public string buttonText;
@@ -39,7 +42,34 @@ namespace RMS
 
         public void noPassenger()
         {
-           // string[] text = new string[noOfPassenger];
+            
+                ConnectionStringSettings conSettings = ConfigurationManager.ConnectionStrings["DB"];
+            string connectionString = conSettings.ConnectionString;
+            try
+            {
+                con = new SqlConnection(connectionString);
+                if (con.State == ConnectionState.Closed)
+                    con.Open();
+
+                da = new SqlDataAdapter("select SeatNo from Reservation where TrainName = '"+BookTrain.trainName+"' and ClassName = '"+BookTrain.className+"' and[From] = '"+BookTrain.source+"' and[To] = '"+BookTrain.destination+"' and DepDate = '"+BookTrain.date+"'", con);
+
+                DataTable dtbl = new DataTable();
+                da.Fill(dtbl);
+
+
+                for (int a = 0; a < dtbl.Rows.Count; a++)
+                {
+                    _data.Add(dtbl.Rows[a]["SeatNo"].ToString());
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+
+
 
             Button[] btnPassenger = new Button[30];
             
@@ -47,6 +77,7 @@ namespace RMS
             {
                 for (int j = 0; j < 6; j++)
                 {
+
                     var txt = new Button();
                     int name = seats;
                     //text[i] = name;
@@ -59,6 +90,13 @@ namespace RMS
                     txt.Visible = true;
                     seats++;
                     txt.Click += new EventHandler(MyButtonClick);
+                    for (int k = 0; k < _data.Count; k++)
+                    {
+                        if (txt.Text == _data[k].ToString())
+                        {
+                            txt.Enabled = false;
+                        }
+                    }
                     
                 }
                 location += 100;
@@ -76,7 +114,25 @@ namespace RMS
 
         private void metroPanel1_Paint(object sender, PaintEventArgs e)
         {
+            
+        }
 
+        private void metroTile2_Click_1(object sender, EventArgs e)
+        {
+            metroPanel1.Controls.Clear();
+            seats = 1;
+            location = 50;
+            noPassenger();
+            metroPanel1.Enabled = true;
+            metroPanel1.Visible = true;
+
+            metroPanel2.Visible = false;
+            metroPanel2.Enabled = false;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+          
         }
 
         private void metroTile1_Click(object sender, EventArgs e)
@@ -105,7 +161,7 @@ namespace RMS
 
                 //Till Here}
                 status = "false";
-                cmd = new SqlCommand("insert into [Reservation](PassengerName,NIC,TrainName,ClassName,SeatNo,[From],[To],Amount,DepDate,DepTime,UserName,Status) values ('"+metroTextBox1.Text + "','" + metroTextBox2.Text + "','"+BookTrain.trainName+"','"+BookTrain.className+"','" + buttonText + "','"+ BookTrain.source + "','"+BookTrain.destination+"','1200','"+BookTrain.date+"','"+BookTrain.arrivaltime+"','"+RMSController.usname+"','False')", con);
+                cmd = new SqlCommand("insert into [Reservation](PassengerName,NIC,TrainName,ClassName,SeatNo,[From],[To],Amount,DepDate,DepTime,UserName,Status) values ('"+metroTextBox1.Text + "','" + metroTextBox2.Text + "','"+BookTrain.trainName+"','"+BookTrain.className+"'," + buttonText + ",'"+ BookTrain.source + "','"+BookTrain.destination+"','1200','"+BookTrain.date+"','"+BookTrain.arrivaltime+"','"+RMSController.usname+"','False')", con);
 
                 cmd.ExecuteNonQuery();
                 con.Close();
@@ -132,26 +188,29 @@ namespace RMS
             metroPanel2.Visible = false;
             metroPanel2.Enabled = false;
 
+           
 
         }
 
         private void metroTile2_Click(object sender, EventArgs e)
         {
-            
-            metroPanel1.Enabled = true;
-            metroPanel1.Visible = true;
-            
-            metroPanel2.Visible = false;
-            metroPanel2.Enabled = false;
             metroPanel1.Controls.Clear();
             seats = 1;
             location = 50;
             noPassenger();
-            
+            metroPanel1.Enabled = true;
+            metroPanel1.Visible = true;
+
+            metroPanel2.Visible = false;
+            metroPanel2.Enabled = false;
+
+
         }
 
         void MyButtonClick(object sender, EventArgs e)
         {
+            
+            if (count <= Convert.ToInt16(BookTrain.npassenger)) { 
             buttonText = ((Button)sender).Text;
             ((Button)sender).Enabled = false;
 
@@ -161,6 +220,14 @@ namespace RMS
             
             metroPanel1.Enabled = false;
             metroPanel1.Visible = false;
+                count++;
+            }
+            else
+            {
+                metroPanel1.Enabled = false;
+                DialogResult DDR = MessageBox.Show("You can only Reserved "+BookTrain.npassenger+" Seats", "Railway Management System",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }

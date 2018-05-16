@@ -20,7 +20,7 @@ namespace RMS
         SqlCommand cmd;
         RMSController controller = new RMSController();
         ReserveSeats passenegr = new ReserveSeats();
-       public static string trainName, className, source, destination, date,arrivaltime;
+       public static string trainName, className, source, destination, date,arrivaltime,npassenger;
 
         public BookTrain()
         {
@@ -45,7 +45,7 @@ namespace RMS
             source = metroComboBox2.SelectedItem.ToString();
             destination = metroComboBox3.SelectedItem.ToString();
             arrivaltime = metroGrid1.Rows[0].Cells["ArrivalTime"].Value.ToString();
-            
+            npassenger = metroComboBox5.SelectedItem.ToString();
 
 
             passenegr.noPassenger();
