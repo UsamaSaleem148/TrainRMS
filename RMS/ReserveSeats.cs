@@ -10,6 +10,9 @@ using System.Windows.Forms;
 using System.Configuration;
 using System.Data.SqlClient;
 using MetroFramework.Controls;
+using PdfSharp.Pdf;
+using PdfSharp.Drawing;
+using System.Diagnostics;
 
 namespace RMS
 {
@@ -138,7 +141,7 @@ namespace RMS
 
         private void metroTile1_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void metroTile3_Click(object sender, EventArgs e)

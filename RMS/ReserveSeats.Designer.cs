@@ -61,7 +61,7 @@
             this.metroTile1.Name = "metroTile1";
             this.metroTile1.Size = new System.Drawing.Size(159, 62);
             this.metroTile1.TabIndex = 5;
-            this.metroTile1.Text = "Book Train!";
+            this.metroTile1.Text = "Generate Tickets";
             this.metroTile1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.metroTile1.UseSelectable = true;
             this.metroTile1.Click += new System.EventHandler(this.metroTile1_Click);
