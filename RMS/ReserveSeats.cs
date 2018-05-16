@@ -21,7 +21,7 @@ namespace RMS
         SqlCommand cmd;
         
 
-        public string arrival,status;
+        public string status;
 
         int seats=1,location = 50,i,j;
 
@@ -95,29 +95,7 @@ namespace RMS
             string connectionString = conSettings.ConnectionString;
 
 
-            try
-            {
-
-                con = new SqlConnection(connectionString);
-                if (con.State == ConnectionState.Closed)
-                    con.Open();
-
-
-
-                da = new SqlDataAdapter("SELECT ArrivalTime from [TrainTimings] where [TrainName]='" + BookTrain.trainName + "' and [StationName]='" + BookTrain.source + "'", con);
-                
-
-                dr = cmd.ExecuteReader();
-                
-                    arrival = (dr["ArrivalTime"].ToString());
-
-
-            }
-            catch (Exception exception)
-            {
-                Console.WriteLine(exception);
-            }
-
+            
             try
 
             {
@@ -127,7 +105,7 @@ namespace RMS
 
                 //Till Here}
                 status = "false";
-                cmd = new SqlCommand("insert into [Reservation](PassengerName,NIC,TrainName,ClassName,SeatNo,[From],[To],Amount,DepDate,DepTime,UserName,Status) values ('"+metroTextBox1.Text + "','" + metroTextBox2.Text + "','"+BookTrain.trainName+"','"+BookTrain.className+"','" + buttonText + "','"+ BookTrain.source + "','"+BookTrain.destination+"','1200','"+BookTrain.date+"','"+arrival+"','"+RMSController.usname+"','False')", con);
+                cmd = new SqlCommand("insert into [Reservation](PassengerName,NIC,TrainName,ClassName,SeatNo,[From],[To],Amount,DepDate,DepTime,UserName,Status) values ('"+metroTextBox1.Text + "','" + metroTextBox2.Text + "','"+BookTrain.trainName+"','"+BookTrain.className+"','" + buttonText + "','"+ BookTrain.source + "','"+BookTrain.destination+"','1200','"+BookTrain.date+"','"+BookTrain.arrivaltime+"','"+RMSController.usname+"','False')", con);
 
                 cmd.ExecuteNonQuery();
                 con.Close();
