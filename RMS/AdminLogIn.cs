@@ -14,6 +14,7 @@ namespace RMS
     {
 
         RMSController controller = new RMSController();
+        public static int adminloginvalidator = 0;
 
         public AdminLogIn()
         {
@@ -27,7 +28,22 @@ namespace RMS
 
         private void metroButton1_Click(object sender, EventArgs e)
         {
+            RMS.AdminDashboardcs.checkingadmin = 0;
             controller.AdminLogin(metroTextBox1.Text,metroTextBox2.Text);
+            if (adminloginvalidator == 100)
+            {
+
+                AdminDashboardcs ud = new AdminDashboardcs();
+                this.Hide();
+                ud.ShowDialog();
+                this.Close();
+
+            }
+            else
+            {
+                DialogResult DDR = MessageBox.Show("Invalid Username or Password", "Railway Management System", MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+            }
         }
     }
 }

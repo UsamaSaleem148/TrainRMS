@@ -15,10 +15,17 @@ namespace RMS
 
 
         Stations st = new Stations();
+        public static int checkingadmin = 0;
 
         public AdminDashboardcs()
         {
             InitializeComponent();
+            if (checkingadmin == 0)
+            {
+                checkingadmin = 100;
+                AdminLogIn form = new AdminLogIn();
+                form.Close();
+            }
         }
 
         private void metroTile1_Click(object sender, EventArgs e)

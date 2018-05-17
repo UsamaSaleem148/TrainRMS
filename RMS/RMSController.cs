@@ -162,18 +162,13 @@ MessageBoxIcon.Information);
                 {
 
 
-                    AdminLogIn adl = new AdminLogIn();
-                    AdminDashboardcs ad = new AdminDashboardcs();
-                    adl.Hide();
-                    ad.ShowDialog();
-                    adl.Close();
+                    RMS.AdminLogIn.adminloginvalidator = 100;
 
 
                 }
                 else
                 {
-                    DialogResult DDR = MessageBox.Show("Invalid Username or Password", "Railway Management System", MessageBoxButtons.OK,
-MessageBoxIcon.Information);
+                    RMS.AdminLogIn.adminloginvalidator = 0;
                 }
 
 
