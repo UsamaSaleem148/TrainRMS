@@ -27,13 +27,15 @@ namespace RMS
         List<string> _data = new List<string>();
         string[] Pname;
         string[] Pnic;
+        string[] Pseat;
+        string[] Pnr;
 
 
 
 
         public string status,btnnameforclose;
 
-        int seats=1,location = 50,i,j,count=1,t=0,b=0;
+        int seats=1,location = 50,i,j,count=1,t=0,b=0,dd=0;
 
 
         
@@ -119,6 +121,8 @@ namespace RMS
         {
             Pname = new string[Convert.ToInt16(BookTrain.npassenger)];
             Pnic = new string[Convert.ToInt16(BookTrain.npassenger)];
+            Pseat = new string[Convert.ToInt16(BookTrain.npassenger)];
+            Pnr = new string[Convert.ToInt16(BookTrain.npassenger)];
         }
 
         private void metroPanel1_Paint(object sender, PaintEventArgs e)
@@ -147,6 +151,8 @@ namespace RMS
 
         private void metroTile1_Click(object sender, EventArgs e)
         {
+
+            
             int x = 10, y = 50;
             
 
@@ -159,14 +165,14 @@ namespace RMS
             XFont smallfont = new XFont("Verdana", 13, XFontStyle.Regular);
             for (int h = 0; h < t; h++)
             {
-                graph.DrawString("                             RMS - E-Ticket                             ", font, XBrushes.Black,100, y += 18);
+                graph.DrawString("PNR#:"+Pnr[h]+"                          RMS - E-Ticket                             ", font, XBrushes.Black,100, y += 18);
                 
                 graph.DrawString("Date: " + BookTrain.date + "                                       Time: " + BookTrain.arrivaltime + "", smallfont, XBrushes.Black, x, y+=18);
                 graph.DrawString("Passenger Name: " + Pname[h] + "                                NIC: " + Pnic[h] + "", smallfont, XBrushes.Black, x, y+=18);
                 graph.DrawString("Train Name: " + BookTrain.trainName + "                          Class: " + BookTrain.className + "", smallfont, XBrushes.Black, x, y += 18);
                 graph.DrawString("From: " + BookTrain.source + "                                 To: " + BookTrain.destination + "", smallfont, XBrushes.Black, x, y += 18);
-                graph.DrawString("Reserved by: " + RMSController.usname + "", smallfont, XBrushes.Black, 10, y+=18);
-                graph.DrawString("                                    ", smallfont, XBrushes.Black, 10, y += 18);
+                graph.DrawString("Amount: 1200                                    ", smallfont, XBrushes.Black, 10, y += 18);
+                graph.DrawString("Reserved by: " + RMSController.usname + "                            Seat: "+Pseat[h]+"", smallfont, XBrushes.Black, 10, y+=18);
                 graph.DrawString("                                    ", smallfont, XBrushes.Black, 10, y += 18);
                 graph.DrawString(" ------------------------------------------------------------------ ", smallfont, XBrushes.Black,120, y += 18);
                 graph.DrawString("                                    ", smallfont, XBrushes.Black, 10, y += 18);
@@ -181,11 +187,12 @@ namespace RMS
 
         private void metroTile3_Click(object sender, EventArgs e)
         {
-             
             
-                Pname[t] = metroTextBox1.Text;
+
+            Pname[t] = metroTextBox1.Text;
                 Pnic[t] = metroTextBox2.Text;
-                t++;
+                Pseat[t] = buttonText;
+            t++;
             
 
             ConnectionStringSettings conSettings = ConfigurationManager.ConnectionStrings["DB"];
@@ -216,6 +223,28 @@ namespace RMS
             {
                 MessageBox.Show(ex.Message);
 
+            }
+            
+            try
+            {
+                con = new SqlConnection(connectionString);
+                if (con.State == ConnectionState.Closed)
+                    con.Open();
+
+                cmd = new SqlCommand("select * from Reservation where NIC='"+metroTextBox2.Text+"' and TrainName='"+BookTrain.trainName+"' and ClassName='"+BookTrain.className+"' and SeatNo="+buttonText+"", con);
+                dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    Pnr[dd] =dr["ReservationID"].ToString();
+                    dd++;
+                    
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
 
             metroPanel1.Enabled = true;
