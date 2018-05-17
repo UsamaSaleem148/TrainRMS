@@ -14,6 +14,7 @@ namespace RMS
     {
         UserSignIn ud = new UserSignIn();
         AdminDashboardcs ad = new AdminDashboardcs();
+        TrainTimings tt = new TrainTimings();
         public Form1()
         {
             InitializeComponent();
@@ -39,6 +40,14 @@ namespace RMS
             AdminLogIn al = new AdminLogIn();
             this.Hide();
             al.ShowDialog();
+            this.Close();
+        }
+
+        private void metroTile2_Click(object sender, EventArgs e)
+        {
+            
+            this.Hide();
+            tt.ShowDialog();
             this.Close();
         }
     }
