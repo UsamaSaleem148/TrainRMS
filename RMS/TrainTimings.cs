@@ -30,12 +30,46 @@ namespace RMS
 
         private void TrainTimings_Load(object sender, EventArgs e)
         {
-            
-           
 
-            //{Copy from here for Connection!
             ConnectionStringSettings conSettings = ConfigurationManager.ConnectionStrings["DB"];
             string connectionString = conSettings.ConnectionString;
+
+
+
+            try
+            {
+                con = new SqlConnection(connectionString);
+                con.Open();
+
+                cmd = new SqlCommand("SELECT TrainName FROM Train", con);
+
+                try
+                {
+                    dr = cmd.ExecuteReader();
+
+                    while (dr.Read())
+                    {
+                        metroComboBox1.Items.Add(dr["TrainName"].ToString());
+                    }
+                    dr.Close();
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+
+
+
+            //{Copy from here for Connection!
+
             try
             {
                 con = new SqlConnection(connectionString);
@@ -43,13 +77,16 @@ namespace RMS
 
                 //Till Here}
 
-                cmd=new SqlCommand("SELECT TrainTimings.TimingsID, Train.TrainName, TrainTimings.ArrivalTime, TrainTimings.DepartureTime FROM TrainTimings INNER JOIN Train ON TrainTimings.TrainID = Train.TrainID", con);
+                cmd = new SqlCommand("SELECT TrainTimings.TimingsID, Train.TrainName,TrainTimings.StationName , TrainTimings.ArrivalTime, TrainTimings.DepartureTime FROM TrainTimings INNER JOIN Train ON TrainTimings.TrainName = Train.TrainName", con);
 
                 SqlDataReader reader = cmd.ExecuteReader();
                 DataTable dt = new DataTable();
-                    dt.Load(reader);
-                    dataGridView1.DataSource = dt;
-        }
+                dt.Load(reader);
+                dataGridView1.DataSource = dt;
+            
+
+            con.Close(); }
+
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
