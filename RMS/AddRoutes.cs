@@ -29,8 +29,7 @@ namespace RMS
         private void AddRoutes_Load(object sender, EventArgs e)
         {
 
-            dateTimePicker1.Format = DateTimePickerFormat.Custom;
-            dateTimePicker1.CustomFormat = "hh:mm:ss";
+            
 
 
 

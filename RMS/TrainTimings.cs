@@ -56,5 +56,28 @@ namespace RMS
             }
 
         }
+
+        private void metroComboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+
+                con.Open();
+
+                //Till Here}
+
+                cmd = new SqlCommand("SELECT * from TrainTimings where TrainName='" + metroComboBox1.Text + "'", con);
+
+                SqlDataReader reader = cmd.ExecuteReader();
+                DataTable dt = new DataTable();
+                dt.Load(reader);
+                dataGridView1.DataSource = dt;
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

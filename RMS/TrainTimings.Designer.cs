@@ -53,6 +53,7 @@
             this.metroComboBox1.Size = new System.Drawing.Size(356, 29);
             this.metroComboBox1.TabIndex = 1;
             this.metroComboBox1.UseSelectable = true;
+            this.metroComboBox1.SelectedIndexChanged += new System.EventHandler(this.metroComboBox1_SelectedIndexChanged);
             // 
             // dataGridView1
             // 
