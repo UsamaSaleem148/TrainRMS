@@ -183,6 +183,11 @@ namespace RMS
             pdf.Save(pdfFilename);
             
             Process.Start(pdfFilename);
+            UserDashboard userdash = new UserDashboard();
+            this.Hide();
+            userdash.ShowDialog();
+            this.Close();
+
         }
 
         private void metroTile3_Click(object sender, EventArgs e)
