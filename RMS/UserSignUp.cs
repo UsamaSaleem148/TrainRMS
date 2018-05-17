@@ -13,6 +13,8 @@ namespace RMS
     public partial class UserSignUp : MetroFramework.Forms.MetroForm
     {
 
+        UserSignIn login = new UserSignIn();
+
         RMSController controller = new RMSController();
 
         public UserSignUp()
@@ -28,6 +30,13 @@ namespace RMS
         private void metroButton1_Click(object sender, EventArgs e)
         {
             controller.UserSignup(metroTextBox1.Text, metroTextBox2.Text, metroTextBox3.Text, metroTextBox4.Text, metroTextBox5.Text, metroTextBox6.Text, richTextBox1.Text);
+        }
+
+        private void metroTile2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            login.ShowDialog();
+            this.Close();
         }
     }
 }

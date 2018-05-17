@@ -15,7 +15,7 @@ namespace RMS
     public partial class TrainTimings : MetroFramework.Forms.MetroForm
     {
 
-
+        UserDashboard ud = new UserDashboard();
 
         SqlConnection con;
         SqlDataReader dr;
@@ -115,6 +115,13 @@ namespace RMS
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void metroTile2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ud.ShowDialog();
+            this.Close();
         }
     }
 }

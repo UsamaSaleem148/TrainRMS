@@ -14,6 +14,8 @@ namespace RMS
 {
     public partial class Train : MetroFramework.Forms.MetroForm
     {
+
+        AdminDashboardcs ad = new AdminDashboardcs();
         RMSController controller = new RMSController();
         SqlConnection con;
         SqlDataReader dr;
@@ -186,6 +188,13 @@ namespace RMS
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void metroTile3_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ad.ShowDialog();
+            this.Close();
         }
     }
 }

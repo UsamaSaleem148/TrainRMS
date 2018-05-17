@@ -14,6 +14,9 @@ namespace RMS
 {
     public partial class BookTrain : MetroFramework.Forms.MetroForm
     {
+
+
+        BookTrain bt = new BookTrain();
         SqlConnection con;
         SqlDataReader dr;
         SqlDataAdapter da;
@@ -21,6 +24,13 @@ namespace RMS
         RMSController controller = new RMSController();
         ReserveSeats passenegr = new ReserveSeats();
        public static string trainName, className, source, destination, date,arrivaltime,npassenger;
+
+        private void metroTile2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            bt.ShowDialog();
+            this.Close();
+        }
 
         private void metroComboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {

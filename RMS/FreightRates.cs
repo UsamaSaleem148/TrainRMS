@@ -15,6 +15,9 @@ namespace RMS
     public partial class FreightRates : MetroFramework.Forms.MetroForm
     {
 
+
+        UserDashboard ud = new UserDashboard();
+
         SqlConnection con;
         SqlDataReader dr;
         SqlDataAdapter da;
@@ -109,6 +112,13 @@ namespace RMS
             {
                 MessageBox.Show("Error" + ex);
             }
+        }
+
+        private void metroTile2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ud.ShowDialog();
+            this.Close();
         }
     }
 }

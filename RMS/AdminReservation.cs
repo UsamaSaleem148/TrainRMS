@@ -12,9 +12,19 @@ namespace RMS
 {
     public partial class AdminReservation : MetroFramework.Forms.MetroForm
     {
+
+        AdminDashboardcs ad = new AdminDashboardcs();
+
         public AdminReservation()
         {
             InitializeComponent();
+        }
+
+        private void metroTile2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ad.ShowDialog();
+            this.Close();
         }
     }
 }

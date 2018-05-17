@@ -13,7 +13,7 @@ namespace RMS
     public partial class AdminDashboardcs : MetroFramework.Forms.MetroForm
     {
 
-
+        AdminLogIn al = new AdminLogIn();
         Stations st = new Stations();
         public static int checkingadmin = 0;
 
@@ -82,6 +82,13 @@ namespace RMS
         {
             this.Hide();
             st.ShowDialog();
+            this.Close();
+        }
+
+        private void metroTile5_Click_1(object sender, EventArgs e)
+        {
+            this.Hide();
+            al.ShowDialog();
             this.Close();
         }
     }

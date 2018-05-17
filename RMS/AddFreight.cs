@@ -12,7 +12,7 @@ namespace RMS
 {
     public partial class AddFreight : MetroFramework.Forms.MetroForm
     {
-
+        AdminDashboardcs ad = new AdminDashboardcs();
         RMSController controller = new RMSController();
 
         public AddFreight()
@@ -23,6 +23,13 @@ namespace RMS
         private void metroTile1_Click(object sender, EventArgs e)
         {
             controller.AddFreight(metroTextBox1.Text, metroTextBox2.Text);
+        }
+
+        private void metroTile2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ad.ShowDialog();
+            this.Close();
         }
     }
 }

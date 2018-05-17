@@ -12,7 +12,7 @@ namespace RMS
 {
     public partial class AdminLogIn : MetroFramework.Forms.MetroForm
     {
-
+        Form1 f = new Form1();
         RMSController controller = new RMSController();
         public static int adminloginvalidator = 0;
 
@@ -44,6 +44,13 @@ namespace RMS
                 DialogResult DDR = MessageBox.Show("Invalid Username or Password", "Railway Management System", MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
             }
+        }
+
+        private void metroTile2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            f.ShowDialog();
+            this.Close();
         }
     }
 }

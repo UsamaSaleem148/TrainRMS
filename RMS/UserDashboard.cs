@@ -12,6 +12,8 @@ namespace RMS
 {
     public partial class UserDashboard : MetroFramework.Forms.MetroForm
     {
+
+        Form1 f = new Form1();
         BookTrain bookingTrain = new BookTrain();
         FreightRates freight = new FreightRates();
         public static int checking = 0;
@@ -49,6 +51,13 @@ namespace RMS
         {
             this.Hide();
             freight.ShowDialog();
+            this.Close();
+        }
+
+        private void metroTile5_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            f.ShowDialog();
             this.Close();
         }
     }
