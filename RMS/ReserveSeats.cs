@@ -117,7 +117,8 @@ namespace RMS
 
         private void ReserveSeats_Load(object sender, EventArgs e)
         {
-
+            Pname = new string[Convert.ToInt16(BookTrain.npassenger)];
+            Pnic = new string[Convert.ToInt16(BookTrain.npassenger)];
         }
 
         private void metroPanel1_Paint(object sender, PaintEventArgs e)
@@ -180,8 +181,7 @@ namespace RMS
 
         private void metroTile3_Click(object sender, EventArgs e)
         {
-             Pname= new string[Convert.ToInt16(BookTrain.npassenger)];
-            Pnic = new string[Convert.ToInt16(BookTrain.npassenger)];
+             
             
                 Pname[t] = metroTextBox1.Text;
                 Pnic[t] = metroTextBox2.Text;

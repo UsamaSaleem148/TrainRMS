@@ -99,18 +99,13 @@ MessageBoxIcon.Information);
                 {
 
                     usname = username;
-                        UserSignIn usd = new UserSignIn();
-                    UserDashboard ud = new UserDashboard();
-                    usd.Hide();
-                    ud.ShowDialog();
-                    usd.Close();
+                    RMS.UserSignIn.loginvalidator = 100;
 
 
                 }
                 else
                 {
-                    DialogResult DDR = MessageBox.Show("Invalid Username or Password", "Railway Management System", MessageBoxButtons.OK,
-MessageBoxIcon.Information);
+                    RMS.UserSignIn.loginvalidator = 0;
                 }
 
                 

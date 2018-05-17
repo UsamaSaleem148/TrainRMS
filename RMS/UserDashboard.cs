@@ -13,9 +13,16 @@ namespace RMS
     public partial class UserDashboard : MetroFramework.Forms.MetroForm
     {
         BookTrain bookingTrain = new BookTrain();
+        public static int checking = 0;
         public UserDashboard()
         {
             InitializeComponent();
+            if (checking == 0)
+            {
+                checking = 100;
+                UserSignIn form = new UserSignIn();
+                form.Close();
+            }
         }
 
         private void metroTile1_Click(object sender, EventArgs e)
