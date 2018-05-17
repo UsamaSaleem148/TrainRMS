@@ -39,7 +39,10 @@ namespace RMS
 
         private void metroTile2_Click(object sender, EventArgs e)
         {
-
+            Reservation rv = new Reservation();
+            this.Hide();
+            rv.ShowDialog();
+            this.Close();
         }
 
         private void metroTile3_Click(object sender, EventArgs e)
