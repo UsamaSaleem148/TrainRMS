@@ -16,7 +16,7 @@ namespace RMS
     {
 
 
-        BookTrain bt = new BookTrain();
+        
         SqlConnection con;
         SqlDataReader dr;
         SqlDataAdapter da;
@@ -27,6 +27,7 @@ namespace RMS
 
         private void metroTile2_Click(object sender, EventArgs e)
         {
+            BookTrain bt = new BookTrain();
             this.Hide();
             bt.ShowDialog();
             this.Close();

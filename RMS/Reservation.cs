@@ -13,7 +13,7 @@ namespace RMS
     public partial class Reservation : MetroFramework.Forms.MetroForm
     {
 
-        UserDashboard ud = new UserDashboard();
+        
 
 
         public Reservation()
@@ -23,6 +23,7 @@ namespace RMS
 
         private void metroTile2_Click(object sender, EventArgs e)
         {
+            UserDashboard ud = new UserDashboard();
             this.Hide();
             ud.ShowDialog();
             this.Close();

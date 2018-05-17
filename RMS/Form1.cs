@@ -12,9 +12,8 @@ namespace RMS
 {
     public partial class Form1 : MetroFramework.Forms.MetroForm
     {
-        UserSignIn ud = new UserSignIn();
-        AdminDashboardcs ad = new AdminDashboardcs();
-        TrainTimings tt = new TrainTimings();
+        
+        TrainTimings ttime = new TrainTimings();
         public Form1()
         {
             InitializeComponent();
@@ -47,7 +46,7 @@ namespace RMS
         {
             
             this.Hide();
-            tt.ShowDialog();
+            ttime.ShowDialog();
             this.Close();
         }
     }

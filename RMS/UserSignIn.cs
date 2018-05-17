@@ -12,7 +12,7 @@ namespace RMS
 {
     public partial class UserSignIn : MetroFramework.Forms.MetroForm
     {
-        Form1 f = new Form1();
+        
 
         RMSController controller = new RMSController();
         public static int loginvalidator = 0;
@@ -34,9 +34,9 @@ namespace RMS
             if (loginvalidator == 100)
             {
                 
-                UserDashboard ud = new UserDashboard();
+                UserDashboard udash = new UserDashboard();
                 this.Hide();
-                ud.ShowDialog();
+                udash.ShowDialog();
                 this.Close();
                 
             }
@@ -49,8 +49,9 @@ MessageBoxIcon.Information);
 
         private void metroTile2_Click(object sender, EventArgs e)
         {
+            Form1 form = new Form1();
             this.Hide();
-            f.ShowDialog();
+            form.ShowDialog();
             this.Close();
         }
     }

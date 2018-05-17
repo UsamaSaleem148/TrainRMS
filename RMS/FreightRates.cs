@@ -16,7 +16,7 @@ namespace RMS
     {
 
 
-        UserDashboard ud = new UserDashboard();
+        
 
         SqlConnection con;
         SqlDataReader dr;
@@ -116,6 +116,7 @@ namespace RMS
 
         private void metroTile2_Click(object sender, EventArgs e)
         {
+            UserDashboard ud = new UserDashboard();
             this.Hide();
             ud.ShowDialog();
             this.Close();

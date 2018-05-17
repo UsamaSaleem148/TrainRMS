@@ -108,9 +108,9 @@
             this.metroTile5.ActiveControl = null;
             this.metroTile5.Location = new System.Drawing.Point(23, 63);
             this.metroTile5.Name = "metroTile5";
-            this.metroTile5.Size = new System.Drawing.Size(48, 37);
+            this.metroTile5.Size = new System.Drawing.Size(67, 39);
             this.metroTile5.TabIndex = 5;
-            this.metroTile5.Text = "Back";
+            this.metroTile5.Text = "Logout";
             this.metroTile5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.metroTile5.UseSelectable = true;
             this.metroTile5.Click += new System.EventHandler(this.metroTile5_Click);

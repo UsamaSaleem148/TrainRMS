@@ -13,46 +13,44 @@ namespace RMS
     public partial class AdminDashboardcs : MetroFramework.Forms.MetroForm
     {
 
-        AdminLogIn al = new AdminLogIn();
-        Stations st = new Stations();
+        
+        
         public static int checkingadmin = 0;
 
         public AdminDashboardcs()
         {
+            AdminLogIn adml = new AdminLogIn();
             InitializeComponent();
             if (checkingadmin == 0)
             {
                 checkingadmin = 100;
-                AdminLogIn form = new AdminLogIn();
-                form.Close();
+                adml.Close();
             }
         }
 
         private void metroTile1_Click(object sender, EventArgs e)
         {
-            AdminDashboardcs ad = new AdminDashboardcs();
             Train train = new Train();
-            ad.Hide();
+            this.Hide();
             train.ShowDialog();
-            ad.Close();
+            this.Close();
         }
 
         private void metroTile2_Click(object sender, EventArgs e)
         {
-            AdminDashboardcs ad = new AdminDashboardcs();
+            
             AdminReservation ar = new AdminReservation();
-            ad.Hide();
+            this.Hide();
             ar.ShowDialog();
-            ad.Close();
+            this.Close();
         }
 
         private void metroTile3_Click(object sender, EventArgs e)
         {
-            AdminDashboardcs ad = new AdminDashboardcs();
             AddFreight af = new AddFreight();
-            ad.Hide();
+            this.Hide();
             af.ShowDialog();
-            ad.Close();
+            this.Close();
         }
 
         private void metroTile9_Click(object sender, EventArgs e)
@@ -62,24 +60,23 @@ namespace RMS
 
         private void metroTile8_Click(object sender, EventArgs e)
         {
-            AdminDashboardcs ad = new AdminDashboardcs();
             AddRoutes ar = new AddRoutes();
-            ad.Hide();
+            this.Hide();
             ar.ShowDialog();
-            ad.Close();
+            this.Close();
         }
 
         private void metroTile5_Click(object sender, EventArgs e)
         {
-            AdminDashboardcs ad = new AdminDashboardcs();
             AdminPassenger ap = new AdminPassenger();
-            ad.Hide();
+            this.Hide();
             ap.ShowDialog();
-            ad.Close();
+            this.Close();
         }
 
         private void metroTile4_Click(object sender, EventArgs e)
         {
+            Stations st = new Stations();
             this.Hide();
             st.ShowDialog();
             this.Close();
@@ -87,8 +84,9 @@ namespace RMS
 
         private void metroTile5_Click_1(object sender, EventArgs e)
         {
+            AdminLogIn adml = new AdminLogIn();
             this.Hide();
-            al.ShowDialog();
+            adml.ShowDialog();
             this.Close();
         }
     }

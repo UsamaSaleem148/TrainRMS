@@ -12,7 +12,7 @@ namespace RMS
 {
     public partial class AdminLogIn : MetroFramework.Forms.MetroForm
     {
-        Form1 f = new Form1();
+        
         RMSController controller = new RMSController();
         public static int adminloginvalidator = 0;
 
@@ -48,8 +48,9 @@ namespace RMS
 
         private void metroTile2_Click(object sender, EventArgs e)
         {
+            Form1 for1 = new Form1();
             this.Hide();
-            f.ShowDialog();
+            for1.ShowDialog();
             this.Close();
         }
     }

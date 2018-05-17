@@ -14,7 +14,7 @@ namespace RMS
 {
     public partial class AddRoutes : MetroFramework.Forms.MetroForm
     {
-        AdminDashboardcs ad = new AdminDashboardcs();
+        
         SqlConnection con;
         SqlDataReader dr;
         SqlDataAdapter da;
@@ -144,6 +144,7 @@ namespace RMS
 
         private void metroTile2_Click(object sender, EventArgs e)
         {
+            AdminDashboardcs ad = new AdminDashboardcs();
             this.Hide();
             ad.ShowDialog();
             this.Close();

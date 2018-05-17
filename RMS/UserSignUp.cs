@@ -13,7 +13,7 @@ namespace RMS
     public partial class UserSignUp : MetroFramework.Forms.MetroForm
     {
 
-        UserSignIn login = new UserSignIn();
+        
 
         RMSController controller = new RMSController();
 
@@ -34,6 +34,7 @@ namespace RMS
 
         private void metroTile2_Click(object sender, EventArgs e)
         {
+            UserSignIn login = new UserSignIn();
             this.Hide();
             login.ShowDialog();
             this.Close();
